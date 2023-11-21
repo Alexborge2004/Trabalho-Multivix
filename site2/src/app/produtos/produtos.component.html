@@ -1,0 +1,77 @@
+<div class="container">
+    <form>
+      <div>
+        <label>ID Produto</label>
+        <input style="background-color: bisque;" type="text" disabled [(ngModel)]="idProduto" name="idProduto">
+      </div>
+      
+      <div>
+        <label>Nome do Produto</label>
+        <input type="text" [(ngModel)]="this.nomeProduto" name="nomeProduto">
+      </div>
+      
+      <div>
+        <label>Código Interno</label>
+        <input type="text" [(ngModel)]="codInterno" name="codInterno">
+      </div>
+
+      <div>
+        <label>Código</label>
+        <input type="text" [(ngModel)]="codigo" name="codigo"/>
+      </div>
+
+      <div>
+        <label>Quantidade</label>
+        <input type="text" [(ngModel)]="quantidade" name="quantidade"/>
+      </div>
+
+      <div>
+        <label>Valor</label>
+        <input type="text" [(ngModel)]="valor" name="valor"/>
+      </div>
+
+      <div>
+        <label>Observações</label>
+        <input type="text" [(ngModel)]="observacoes" name="observacoes"/>
+      </div>
+
+      
+      <button (click)="buttonClick()"> 
+        {{ idProduto ? 'Salvar' : 'Criar' }}  
+      </button>
+    </form>
+
+    <table>
+
+        <thead>
+            <th> ID Produto </th>
+            <th> Nome do Produto </th>
+            <th> Código Interno </th>
+            <th> Código </th>
+            <th> Quantidade </th>
+            <th> Valor </th>
+            <th> Observações </th>
+            <th> Data Criação </th>
+            <th> Data Atualização </th>
+        </thead>
+      
+      <tbody>
+        <tr *ngFor="let produto of produto$ | async">
+          <td> {{ produto.idProduto }} </td>
+          <td> {{ produto.nomeProduto }} </td>
+          <td> {{ produto.codInterno }} </td>
+          <td> {{ produto.codigo }} </td>
+          <td> {{ produto.quantidade }} </td>
+          <td> {{ produto.valor }} </td>
+          <td> {{ produto.observacoes }} </td>
+          <td> {{ produto.dataCriacao }} </td>
+          <td> {{ produto.dataAtualizacao }} </td>
+          <td> 
+            <span  (click)="preencherCampos(produto)" > alterar </span> 
+            <span style="margin-left: 15px;" (click)="remover(produto)" > remover </span> 
+          </td>
+        </tr>
+  
+      </tbody>
+    </table>
+</div>
