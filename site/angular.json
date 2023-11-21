@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tutoriais": {
+    "eliasg": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tutoriais",
+            "outputPath": "dist/eliasg",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -94,10 +94,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tutoriais:build:production"
+              "browserTarget": "eliasg:build:production"
             },
             "development": {
-              "browserTarget": "tutoriais:build:development"
+              "browserTarget": "eliasg:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,7 +105,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tutoriais:build"
+            "browserTarget": "eliasg:build"
           }
         },
         "test": {

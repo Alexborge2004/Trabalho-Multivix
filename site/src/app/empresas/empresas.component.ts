@@ -45,6 +45,7 @@ export class EmpresasComponent {
     this.EmpresaService.cadastrarEmpresa({razaoSocial: this.razaoSocial, nomeFantasia: this.nomeFantasia, 
       telefone: this.telefone, email: this.email, cnpj: this.cnpj, site: this.site, dataCriacao: this.dataCriacao})
       .subscribe(() => this.obterEmpresasCadastradas())
+      this.clearCampos()
   }
 
   atualizar(){
@@ -52,14 +53,8 @@ export class EmpresasComponent {
       idEmpresa: parseInt(this.idEmpresa), razaoSocial: this.razaoSocial, nomeFantasia: this.nomeFantasia, 
       telefone: this.telefone, email: this.email, cnpj: this.cnpj, site: this.site, dataAtualizacao: this.dataAtualizacao})
     .subscribe(_ => this.obterEmpresasCadastradas());
-
-    this.idEmpresa = '';
-    this.razaoSocial = '';
-    this.nomeFantasia = '';
-    this.telefone = '';
-    this.email = '';
-    this.cnpj = '';
-    this.site = '';
+    this.clearCampos()
+    
   }
 
   preencherCampos(empresa: Empresa){
@@ -70,6 +65,16 @@ export class EmpresasComponent {
     this.email = empresa.email;
     this.cnpj = empresa.cnpj;
     this.site = empresa.site;
+  }
+
+  clearCampos(){
+    this.idEmpresa = '';
+    this.razaoSocial = '';
+    this.nomeFantasia = '';
+    this.telefone = '';
+    this.email = '';
+    this.cnpj = '';
+    this.site = '';
   }
 
   remover(empresa: Empresa){

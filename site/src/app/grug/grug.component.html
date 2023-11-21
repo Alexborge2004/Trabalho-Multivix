@@ -1,0 +1,149 @@
+<div class="container">
+    <form>
+    
+      <div style="width: 100%;">
+
+      <div>
+        
+        <div style="width: 100%;">
+          <label>ID Grupo</label>
+          <input style="background-color: bisque;" type="text" disabled [(ngModel)]="idGrupoGerador" name="idGrupoGerador">
+        </div>
+
+        <div>
+          <label>Empresa</label>
+          <input type="text" [(ngModel)]="empresa" name="empresa">
+        </div>
+
+        <div>
+          <label>Fabricante</label>
+          <input type="text" [(ngModel)]="fabricante" name="fabricante">
+        </div>
+
+        <div>
+          <label>Gerador Potência</label>
+          <input type="text" [(ngModel)]="gPotencia" name="gPotencia">
+        </div>
+
+        <div>
+          <label>Nº Série</label>
+          <input type="text" [(ngModel)]="nSerie" name="nSerie">
+        </div>
+      
+      </div>
+
+      <div>
+
+      <div>
+        <label>Modelo</label>
+        <input type="text" [(ngModel)]="modelo" name="modelo">
+      </div>
+
+      <div>
+        <label>Filtro</label>
+        <input type="text" [(ngModel)]="filtro" name="filtro">
+      </div>
+
+      <div>
+        <label>Filtros Compatíveis</label>
+        <input type="text" [(ngModel)]="fCompativeis" name="fCompativeis">
+      </div>
+      
+      <div>
+        <label>Mangueira</label>
+        <input type="text" [(ngModel)]="mangueira" name="mangueira">
+      </div>
+
+      <div>
+        <label>Motores Compatíveis</label>
+        <input type="text" [(ngModel)]="mCompativeis" name="mCompativeis">
+      </div>
+ 
+      </div>
+     
+      <div>
+   
+        <div>
+          <label>Tipo Operação</label>
+          <input type="text" [(ngModel)]="tipoOper" name="tipoOper">
+        </div>
+
+        <div>
+          <label>Fabricante Motor</label>
+          <input type="text" [(ngModel)]="fabMotor" name="fabMotor">
+        </div>
+
+        <div>
+          <label>Série</label>
+          <input type="text" [(ngModel)]="serie" name="serie">
+        </div>
+
+        <div>
+          <label>Motor Modelo</label>
+          <input type="text" [(ngModel)]="mmodelo" name="mmodelo">
+        </div>
+
+        <div>
+          <label>Motor Potência</label>
+          <input type="text" [(ngModel)]="mPotencia" name="mPotencia">
+        </div>
+    
+      </div>
+
+      </div>
+         
+      <button (click)="buttonClick()"> 
+        {{ idGrupoGerador ? 'Salvar' : 'Criar' }}  
+      </button>
+    </form>
+
+    <table>
+
+        <thead>
+            <th> ID Grupo </th>
+            <th> Empresa </th>
+            <th> Fabricante </th>
+            <th> Gerador Potência </th>
+            <th> Nº Série </th>
+            <th> Modelo </th>
+            <th> Filtro </th>
+            <th> Filtros Compatíveis </th>
+            <th> Mangueira </th>
+            <th> Motores Compatíveis </th>
+            <th> Tipo Operação </th>
+            <th> Fabricante Motor </th>
+            <th> Série </th>
+            <th> Motor Modelo </th>
+            <th> Motor Potência </th>
+            <th> Data Criação </th>
+            <th> Data Atualização </th>
+        </thead>
+      
+      <tbody>
+        <tr *ngFor="let grug of grug$ | async">
+          <td> {{ grug.idGrupoGerador }} </td>
+          <td> {{ grug.empresa }} </td>
+          <td> {{ grug.fabricante }} </td>
+          <td> {{ grug.gPotencia }} </td>
+          <td> {{ grug.nSerie }} </td>
+          <td> {{ grug.modelo }} </td>
+          <td> {{ grug.filtro }} </td>
+          <td> {{ grug.fCompativeis }} </td>
+          <td> {{ grug.mangueira }} </td>
+          <td> {{ grug.mCompativeis }} </td>
+          <td> {{ grug.tipoOper }} </td>
+          <td> {{ grug.fabMotor }} </td>
+          <td> {{ grug.serie }} </td>
+          <td> {{ grug.mmodelo }} </td>
+          <td> {{ grug.mPotencia }} </td>
+          <td> {{ grug.dataCriacao }} </td>
+          <td> {{ grug.dataAtualizacao }} </td>
+          <td> 
+            <span  (click)="preencherCampos(grug)" > alterar </span> 
+            <span style="margin-left: 15px;" (click)="remover(grug)" > remover </span> 
+          </td>
+        </tr>
+  
+      </tbody>
+    </table>
+</div>

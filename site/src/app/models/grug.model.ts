@@ -1,5 +1,5 @@
 export type GruG = {
-    idgrupogeradores? : number,
+    idGrupoGerador? : number,
     empresa : string,
     fabricante : string,
     gPotencia : number,
@@ -14,8 +14,8 @@ export type GruG = {
     serie : string,
     mmodelo : string,
     mPotencia : string,
-    dataCriacao: string,
+    dataCriacao?: string,
     dataAtualizacao?: string
 }
 
-export type GruGCadastrar = Omit<GruG, 'idgrupogeradores'>;
+export type GruGCadastrar = Omit<GruG, 'idGrupoGerador'>;

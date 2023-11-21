@@ -16,7 +16,7 @@ module.exports =
         try {
             const grupogeradores = await ModelGrupoGeradores.create(
                 {
-                    idgrupogeradores : req.body.idgrupogeradores,
+                    idGrupoGerador : req.body.idGrupoGerador,
                     empresa : req.body.empresa,
                     fabricante : req.body.fabricante,
                     gPotencia : req.body.gPotencia,
@@ -45,7 +45,7 @@ module.exports =
 
     async Update(req,res) {
         try {
-                const grug = await ModelGrupoGeradores.findByPk(req.body.idgrupogeradores);
+                const grug = await ModelGrupoGeradores.findByPk(req.body.idGrupoGerador);
                 if (grug) {
                     grug.empresa = req.body.empresa,
                     grug.fabricante = req.body.fabricante,
@@ -54,7 +54,7 @@ module.exports =
                     grug.modelo = req.body.modelo,
                     grug.filtro = req.body.filtro,
                     grug.fCompativeis = req.body.fCompativeis,
-                    grug.grugmangueira = req.b.ody.mangueira,
+                    grug.mangueira = req.body.mangueira,
                     grug.mCompativeis = req.body.mCompativeis,
                     grug.tipoOper = req.body.tipoOper,
                     grug.fabMotor = req.body.fabMotor,
@@ -74,7 +74,7 @@ module.exports =
     async GetOne(req,res) {
         try {
     
-            const grug = await ModelGrupoGeradores.findByPk(req.body.idgrupogeradores);
+            const grug = await ModelGrupoGeradores.findByPk(req.body.idGrupoGerador);
          
             return res.json(grug);
         } 
@@ -86,7 +86,7 @@ module.exports =
     async Delete(req,res) {
         try {
     
-            const grug = await ModelGrupoGeradores.findByPk(req.body.idgrupogeradores);
+            const grug = await ModelGrupoGeradores.findByPk(req.body.idGrupoGerador);
             await grug.destroy();
             return res.json(grug);
         } 

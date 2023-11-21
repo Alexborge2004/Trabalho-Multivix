@@ -44,6 +44,8 @@ export class ProdutosComponent {
       codigo:parseInt(this.codigo), quantidade:parseInt(this.quantidade), valor:parseInt(this.valor), 
       observacoes:this.observacoes, dataCriacao:this.dataCriacao})
       .subscribe(() => this.obterProdutosCadastrados())
+
+      this.clearCampos()
   }
 
   atualizar(){
@@ -53,13 +55,8 @@ export class ProdutosComponent {
       observacoes:this.observacoes, dataAtualizacao: this.dataAtualizacao})
     .subscribe(_ => this.obterProdutosCadastrados());
 
-    this.idProduto = '';  
-    this.nomeProduto = '';  
-    this.codInterno = '';
-    this.codigo = '';
-    this.quantidade = '';
-    this.valor = '';
-    this.observacoes = '';
+    this.clearCampos()
+    
   }
 
   preencherCampos(produto: Produto){
@@ -70,6 +67,16 @@ export class ProdutosComponent {
     this.quantidade = produto.quantidade.toString();
     this.valor = produto.valor.toString();
     this.observacoes= produto.observacoes;
+  }
+
+  clearCampos(){
+    this.idProduto = '';  
+    this.nomeProduto = '';  
+    this.codInterno = '';
+    this.codigo = '';
+    this.quantidade = '';
+    this.valor = '';
+    this.observacoes = '';
   }
 
   remover(produto: Produto){
